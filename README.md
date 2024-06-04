@@ -19,7 +19,7 @@ const [command, isValid, validationErrors] = validateModel<CreateUserCommand>(Cr
 if (!isValid) {
     res.status(400).send(validationErrors);
 } else {
-    const result = await createEmployee({
+    const result = await createUser({
         additionalFields: true,
         ...command,
     } as NewUser)
