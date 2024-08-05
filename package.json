@@ -1,0 +1,13 @@
+{
+  "name": "simple-ts-validator",
+  "version": "1.0.0",
+  "devDependencies": {
+    "@types/node": "^22.1.0",
+    "tsx": "^4.16.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4"
+  },
+  "scripts": {
+    "start": "tsx sample.ts"
+  }
+}
