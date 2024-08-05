@@ -1,8 +1,12 @@
 # simple-ts-validator
 
+* Simple entity validation.
+* Prevents from overposting attacks.
+* This is a base-code: just copy it into your project and extend it!
+
 ## Usage
 
-Define your commands:
+Define your commands (or entities, or whatever):
 
 ```ts
 export class CreateUserCommand {
@@ -26,4 +30,11 @@ if (!isValid) {
 
     res.send(result);
 }
+```
+
+For more examples, check **sample.ts**. To run this project locally simply use these commands:
+
+```
+npm install
+npm start
 ```
