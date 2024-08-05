@@ -38,4 +38,4 @@ function validateModel<T extends object>(type: { new(): T ;}, req: {[key: string
   ]
 }
 
-module.exports = validateModel;
+export default validateModel;
