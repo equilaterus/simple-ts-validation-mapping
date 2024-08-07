@@ -38,3 +38,9 @@ For more examples, see **sample.ts**. To run this project locally simply use the
 npm install
 npm start
 ```
+
+## FAQ
+
+* **How to integrate this with my project?** Just copy the contents from *validator.ts* into your project, extend and modify as required.
+
+* **Why there is no NPM package?** This is a *base code* that you can use and extend so there is no package available.
