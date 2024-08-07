@@ -1,8 +1,8 @@
-# simple-ts-validator
+# Simple Typescript Validation and Mapping
 
-* Simple **entity validation** and **auto-mapping**.
+* Clean **entity validation** and **auto-mapping**.
 * Prevents from **overposting** attacks.
-* This is a base-code: just copy it into your project and extend it!
+* Simple and extensible.
 
 ## Usage
 
@@ -15,7 +15,7 @@ export class TargetModel {
 }
 ```
 
-And validate it! For example, if you want to validate a request on ExpressJS:
+And validate it! For example, if you want to check a request on ExpressJS:
 
 ```ts
 const [targetModel, isValid, validationErrors] = validateModel(TargetModel, req.body);
@@ -32,7 +32,7 @@ if (!isValid) {
 }
 ```
 
-For more examples, check **sample.ts**. To run this project locally simply use these commands:
+For more examples, see **sample.ts**. To run this project locally simply use these commands:
 
 ```
 npm install

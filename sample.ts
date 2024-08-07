@@ -49,7 +49,11 @@ runSample({
 runSample({
     username: 'bad',
     email: 'rince@wind.com',
-}, 
+},
+// You can send a function that receives:
+// - target: mapped model
+// - validationErrors: an array where you can add error messages
+// And returns a boolean indicating if the model is valid or not.
 (target: CreateUserCommand, validationErrors: Array<string>): boolean => {
     let isValid = true;
     if (target.username.length < 5) {
