@@ -1,6 +1,10 @@
-function validateModel<T extends object>(type: { new(): T ;}, req: {[key: string]: any}) 
-  : [T, boolean, Array<string>] {
-  const command = new type();
+
+function validateModel<T extends object>(
+    type: { new(): T ; },
+    source: {[key: string]: any}
+) : [T, boolean, Array<string>] 
+{
+  const target = new type();
   type keys = keyof T;
 
   let isValid = true;
@@ -8,15 +12,15 @@ function validateModel<T extends object>(type: { new(): T ;}, req: {[key: string
   const requiredKeys: Array<string> = [];
   const addedKeys: Array<string> = [];
 
-  Object.entries(command).forEach(([key, value]) => {
+  Object.entries(target).forEach(([key, value]) => {
     if (value !== null) {
       requiredKeys.push(key);
     }
   });
   
-  Object.entries(req).forEach(([key,value]) => {
-    if (key in command) {
-      command[key as keys] = value as any;
+  Object.entries(source).forEach(([key,value]) => {
+    if (key in target) {
+      target[key as keys] = value as any;
       addedKeys.push(key);
     } else {
       isValid = false;
@@ -32,7 +36,7 @@ function validateModel<T extends object>(type: { new(): T ;}, req: {[key: string
   });
 
   return [
-    command,
+    target,
     isValid,
     validationErrors
   ]
