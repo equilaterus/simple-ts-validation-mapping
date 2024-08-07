@@ -1,7 +1,8 @@
 
 function validateModel<T extends object>(
     type: { new(): T ; },
-    source: {[key: string]: any}
+    source: {[key: string]: any},
+    validateFunc?: (target: T, validationErrors: Array<string>) => boolean
 ) : [T, boolean, Array<string>] 
 {
   const target = new type();
@@ -34,6 +35,10 @@ function validateModel<T extends object>(
       isValid = false;
     }
   });
+
+  if (validateFunc) {
+    isValid = isValid && validateFunc(target, validationErrors);
+  }
 
   return [
     target,
