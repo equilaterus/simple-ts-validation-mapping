@@ -9,7 +9,7 @@ export class CreateUserCommand {
 }
 
 function runSample(input) {
-    const [command, isValid, validationErrors] = validateModel<CreateUserCommand>(CreateUserCommand, input);
+    const [command, isValid, validationErrors] = validateModel(CreateUserCommand, input);
 
     console.log('Input: ', JSON.stringify(input));
     console.log('Validated command: ', JSON.stringify(command));
@@ -21,17 +21,21 @@ function runSample(input) {
     console.log('-------------------------------------------------')
 }
 
+// Missing keys
 runSample({});
 
+// OK
 runSample({
     username: 'Rincewind'
 });
 
+// OK
 runSample({
     username: 'Rincewind',
     email: 'rince@wind.com'
 });
 
+// Overpost!
 runSample({
     username: 'Overpost!',
     email: 'over@post.com',
