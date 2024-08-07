@@ -1,32 +1,32 @@
 # simple-ts-validator
 
-* Simple entity validation.
-* Prevents from overposting attacks.
+* Simple **entity validation** and **auto-mapping**.
+* Prevents from **overposting** attacks.
 * This is a base-code: just copy it into your project and extend it!
 
 ## Usage
 
-Define your commands (or entities, or whatever):
+Define your target model:
 
 ```ts
-export class CreateUserCommand {
+export class TargetModel {
   requiredField: string = "";
   optionalField: string | null = null;
 }
 ```
 
-And validate, for example on ExpressJS:
+And validate it! For example, if you want to validate a request on ExpressJS:
 
 ```ts
-const [command, isValid, validationErrors] = validateModel<CreateUserCommand>(CreateUserCommand, req.body);
+const [targetModel, isValid, validationErrors] = validateModel(TargetModel, req.body);
     
 if (!isValid) {
     res.status(400).send(validationErrors);
 } else {
-    const result = await createUser({
+    const result = await doSomethingWithTargetModel({
         additionalFields: true,
         ...command,
-    } as NewUser)
+    } as targetWithAdditionalFields)
 
     res.send(result);
 }
