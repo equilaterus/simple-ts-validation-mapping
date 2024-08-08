@@ -1,7 +1,7 @@
 # Simple Typescript Validation and Mapping
 
 * Clean **entity validation** and **auto-mapping**.
-* Prevents from **overposting** attacks.
+* Prevents **overposting** attacks.
 * Simple and extensible.
 
 ## Usage
